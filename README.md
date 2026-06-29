@@ -8,7 +8,7 @@ R and Python projects in VS Code with GitHub Copilot.
 | Situation | Template |
 |---|---|
 | Exploratory analysis, quick fix, solo work, known domain | **this one** |
-| New feature, cross-team, high-stakes, long-lived, or large ambiguity | [spec_driven_ai](https://github.com/YOUR_ORG/spec_driven_ai) |
+| New feature, cross-team, high-stakes, long-lived, or large ambiguity | [spec-driven-ai-template](https://github.com/srearl/spec-driven-ai-template) |
 
 ## What this template provides
 
