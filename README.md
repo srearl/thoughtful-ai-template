@@ -1,7 +1,7 @@
-# Intentional AI — GitHub Copilot Template
+# Intentional AI Template
 
 A lightweight, **well-architected but non-spec-driven** workflow template for
-R and Python projects in VS Code with GitHub Copilot.
+R and Python projects with AI coding assistants.
 
 ## When to use this template
 
@@ -12,14 +12,16 @@ R and Python projects in VS Code with GitHub Copilot.
 
 ## What this template provides
 
-- **Language standards** auto-applied via `.github/instructions/` (R, Python,
-  analysis work) — no manual loading required.
+- **Cross-platform operating model** in `AGENTS.md`, with lightweight adapters
+  for GitHub Copilot, Claude Code, and Cursor.
+- **Language standards** in `.github/instructions/` (R, Python, analysis work)
+  for platforms that support scoped instruction files.
 - **WAF awareness** baked into the operating model as an inline check, not a
   gated phase. The agent briefly notes relevant pillars before implementing.
 - **Authoritative-source discipline** — the agent verifies API signatures and
   config keys from documentation, not model memory.
-- **Local WAF reference** in `docs/waf/` — version-controlled pillar checklists
-  the agent consults for non-trivial design choices.
+- **Local WAF reference** in `.github/ai-reference/waf/` — version-controlled
+  pillar checklists the agent consults for non-trivial design choices.
 - **Domain skills** in `.github/skills/` — load on demand (e.g. EML/EDI
   metadata, other domain knowledge you add over time).
 
@@ -34,11 +36,37 @@ R and Python projects in VS Code with GitHub Copilot.
 
 1. Use this repo as a GitHub template ("Use this template" button).
 2. Clone the new repo and open it in VS Code.
-3. The instructions in `.github/instructions/` activate automatically based on
-   file type (`*.R`, `*.py`, etc.).
-4. When asking Copilot to implement something non-trivial, it will briefly state
-   the relevant WAF pillars and any trade-offs before writing code — no extra
-   prompting required.
+3. Start from `AGENTS.md`; it is the canonical operating model for AI agents.
+4. Platform-specific adapters point back to `AGENTS.md`:
+   `.github/copilot-instructions.md`, `CLAUDE.md`, and `.cursor/rules/`.
+5. When asking an assistant to implement something non-trivial, it should
+   briefly state the relevant WAF pillars and any trade-offs before writing
+   code.
+
+## Platform support
+
+Different AI tools discover repository instructions from different file names.
+This template keeps the shared guidance in `AGENTS.md` and uses small adapter
+files for tool-specific discovery.
+
+| Platform | Entry point |
+|---|---|
+| Codex / many agentic coding tools | `AGENTS.md` |
+| GitHub Copilot | `.github/copilot-instructions.md` and `.github/instructions/` |
+| Claude Code | `CLAUDE.md` |
+| Cursor | `.cursor/rules/project.mdc` |
+
+The `.github/instructions/*.instructions.md` files remain useful for Copilot's
+path-scoped rules. Other assistants may not load them automatically, so
+`AGENTS.md` tells agents to consult task-specific instructions when relevant.
+
+## Reuse model
+
+Use this repository primarily as a GitHub template so instruction files are
+copied into the root of each new project. A Git submodule can version the shared
+guidance, but most AI tools do not automatically discover instruction files
+nested inside a submodule. If a consuming project uses a submodule, keep
+root-level adapter files in that project that point into the submodule.
 
 ## Connecting live documentation (optional but recommended)
 
