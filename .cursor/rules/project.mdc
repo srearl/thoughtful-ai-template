@@ -1,0 +1,9 @@
+---
+description: Repository-wide AI operating model
+alwaysApply: true
+---
+
+Use the repository-wide operating model in `../../AGENTS.md`.
+
+Also consult `.github/instructions/` when a task-specific instruction file
+matches the current work.

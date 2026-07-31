@@ -4,6 +4,14 @@ Tracks intentional changes to the engineering operating model: instructions,
 skills, WAF docs, and MCP config. Git history captures *what*; this file
 captures *why*. Newest first.
 
+## 2026-07-31
+- Promote `AGENTS.md` as the canonical cross-platform AI operating model so
+  Codex and other agents can discover the repository guidance without relying
+  on GitHub Copilot-specific file names.
+- Convert `.github/copilot-instructions.md` into a Copilot adapter and add
+  lightweight Claude/Cursor adapters that point back to the shared rules,
+  reducing duplicated instruction drift across AI platforms.
+
 ## 2026-07-24
 - Move the hand-maintained WAF reference material into
   `.github/ai-reference/waf/` so pkgdown clean builds can safely replace the
