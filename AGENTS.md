@@ -35,6 +35,22 @@ For large or ambiguous requests, ask one clarifying question rather than
 guessing. For genuinely complex multi-team or long-lived work, consider the
 companion spec-driven template instead.
 
+## Record AI-assisted project work
+
+After completing material AI-assisted project work, add a concise entry to
+`AI_WORKLOG.md`. Summarize the request, outcome, important decisions,
+verification, and any limitations or follow-up. Skip routine questions and
+trivial changes whose intent is already obvious from the diff.
+
+Do not copy raw prompts, transcripts, private reasoning, or tool output into
+the worklog. Never record credentials, personal or sensitive data, or
+proprietary prompt content. Treat the worklog as curated historical context,
+not as a complete audit trail or a substitute for authoritative project
+documentation.
+
+Use `.github/CHANGELOG.md` for changes to the AI operating model and a root
+`CHANGELOG.md`, when present, for user-facing release history.
+
 ## Well-Architected pillars (decision lens)
 
 For non-trivial choices, note which pillar(s) you are optimizing for and what

@@ -12,5 +12,8 @@ and what you trade away (see the base operating model in
   `.github/ai-reference/waf/pillars/`.
 - These are version-controlled, reviewable references — prefer them (and live
   doc MCP servers) over model memory.
-- Record rationale inline in the relevant code comment, commit message, or
-  `CHANGELOG.md` entry rather than a separate spec file.
+- Record local implementation rationale in the relevant code comment or commit
+  message. For material AI-assisted work, add a concise `AI_WORKLOG.md` entry.
+  Reserve `.github/CHANGELOG.md` for changes to the AI operating model and a
+  root `CHANGELOG.md`, when present, for user-facing release history. A
+  separate spec file is not required for this lightweight workflow.
