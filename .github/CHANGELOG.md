@@ -4,6 +4,17 @@ Tracks intentional changes to the engineering operating model: instructions,
 skills, WAF docs, and MCP config. Git history captures *what*; this file
 captures *why*. Newest first.
 
+## 2026-08-13
+- Add a root `AI_WORKLOG.md` template for concise, sanitized summaries of
+  material AI-assisted project work, preserving request-to-outcome context
+  without storing raw prompts or transcripts.
+- Distinguish the project AI worklog from `.github/CHANGELOG.md` (operating
+  model changes) and an optional root `CHANGELOG.md` (user-facing releases),
+  removing ambiguity about where each kind of rationale belongs.
+- Extend the operational-excellence guidance to make project-level AI work
+  traceable while explicitly limiting documentation overhead and sensitive
+  data exposure.
+
 ## 2026-07-31
 - Promote `AGENTS.md` as the canonical cross-platform AI operating model so
   Codex and other agents can discover the repository guidance without relying

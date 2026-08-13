@@ -5,7 +5,10 @@ Automation, observability, and documentation so the work is maintainable.
 ## Checklist
 - [ ] CI runs tests/linters on every change.
 - [ ] Formatting/linting automated (`styler`/`lintr`, `ruff`/`black`).
-- [ ] Rationale for non-obvious decisions captured in comments or `CHANGELOG.md`.
+- [ ] Rationale for non-obvious decisions captured in comments, commit
+      messages, or the appropriate worklog/changelog.
+- [ ] Material AI-assisted work summarized in `AI_WORKLOG.md` without raw
+      prompts or transcripts.
 - [ ] Logs/progress visible for long-running pipelines.
 - [ ] README explains setup, run, and verify steps.
 
