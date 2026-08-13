@@ -14,6 +14,8 @@ captures *why*. Newest first.
 - Extend the operational-excellence guidance to make project-level AI work
   traceable while explicitly limiting documentation overhead and sensitive
   data exposure.
+- Document the convention in the expanded documentation-branch README while
+  keeping the main-branch README minimal for template consumers.
 
 ## 2026-07-31
 - Promote `AGENTS.md` as the canonical cross-platform AI operating model so

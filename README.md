@@ -22,6 +22,8 @@ R and Python projects with AI coding assistants.
   config keys from documentation, not model memory.
 - **Local WAF reference** in `.github/ai-reference/waf/` — version-controlled
   pillar checklists the agent consults for non-trivial design choices.
+- **Concise AI worklog** in `AI_WORKLOG.md` — sanitized request, outcome,
+  decision, and verification summaries for material AI-assisted project work.
 - **Domain skills** in `.github/skills/` — load on demand (e.g. EML/EDI
   metadata, other domain knowledge you add over time).
 
@@ -42,6 +44,8 @@ R and Python projects with AI coding assistants.
 5. When asking an assistant to implement something non-trivial, it should
    briefly state the relevant WAF pillars and any trade-offs before writing
    code.
+6. For material AI-assisted work, review the assistant's concise
+   `AI_WORKLOG.md` entry alongside the code changes.
 
 ## Platform support
 
@@ -67,6 +71,29 @@ copied into the root of each new project. A Git submodule can version the shared
 guidance, but most AI tools do not automatically discover instruction files
 nested inside a submodule. If a consuming project uses a submodule, keep
 root-level adapter files in that project that point into the submodule.
+
+## Recording AI-assisted project work
+
+`AI_WORKLOG.md` preserves the useful connection between a request and its
+verified outcome without retaining a verbose prompt or execution transcript.
+For material work, the assistant records a short, sanitized request summary;
+the outcome; important decisions and trade-offs; verification results; known
+limitations; and links to related issues, pull requests, or commits.
+
+The worklog intentionally omits routine questions, trivial changes, raw
+prompts, transcripts, private reasoning, tool output, credentials, and
+sensitive or proprietary data. It is curated historical context, not a
+complete audit trail or a substitute for authoritative project documentation.
+
+Use each history file for a distinct purpose:
+
+| Information | Location |
+|---|---|
+| Material AI-assisted project work | `AI_WORKLOG.md` |
+| Changes to AI instructions and the operating model | `.github/CHANGELOG.md` |
+| User-facing release history, when maintained | `CHANGELOG.md` |
+
+See `AI_WORKLOG.md` for the entry template and detailed inclusion rules.
 
 ## Connecting live documentation (optional but recommended)
 
