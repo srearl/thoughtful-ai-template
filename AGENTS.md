@@ -48,8 +48,7 @@ proprietary prompt content. Treat the worklog as curated historical context,
 not as a complete audit trail or a substitute for authoritative project
 documentation.
 
-Use `.github/CHANGELOG.md` for changes to the AI operating model and a root
-`CHANGELOG.md`, when present, for user-facing release history.
+Use a root `CHANGELOG.md`, when present, for user-facing release history.
 
 ## Well-Architected pillars (decision lens)
 
@@ -86,5 +85,5 @@ Inline format (keep it brief):
   end-to-end from a clean checkout.
 - **Domain knowledge** (e.g. ecological metadata / EML / EDI) may live in
   `.github/skills/` when present and should be loaded on demand.
-- **Record operating-model changes** in `.github/CHANGELOG.md` — capture
-  the *why*, not just the *what*.
+- **Record material AI-assisted project work** in `AI_WORKLOG.md`; capture
+  outcome and limitations, not raw prompts or transcripts.

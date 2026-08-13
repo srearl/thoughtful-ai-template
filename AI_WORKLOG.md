@@ -28,8 +28,23 @@ a complete audit trail, or a reproducible record of an AI session. Update the
 project's authoritative documentation when behavior or operating procedures
 change.
 
-Use `.github/CHANGELOG.md` instead when changing the AI operating model itself.
 Use a root `CHANGELOG.md`, when present, for user-facing release history.
+
+## 2026-08-13 — Cross-platform instruction cleanup
+
+- **Request summary:** Review the AI instruction template for copied-project
+  use, cross-platform Copilot behavior, and the repository-specific changelog.
+- **Outcome:** Removed references that tell copied projects to maintain
+  `.github/CHANGELOG.md`; made analysis and Well-Architected instruction files
+  explicit with `applyTo` frontmatter for more consistent automatic matching.
+- **Decisions:** Kept `AGENTS.md` as the canonical operating model and
+  platform-specific files as adapters. The template repository's customization
+  changelog belongs on the documentation branch, not in copied project files.
+- **Verification:** Inspected the instruction files and compared the behavior
+  against official VS Code and GitHub Copilot documentation.
+- **Limitations/follow-up:** Confirm whether any copy scripts or template
+  generation workflows need to exclude branch-only documentation files.
+- **References:** None.
 
 ## Entry template
 

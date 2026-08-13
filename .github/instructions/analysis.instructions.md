@@ -1,5 +1,6 @@
 ---
 description: "Use when the deliverable is a data analysis rather than software: exploratory analysis, statistics/modeling, figures, or reports/notebooks. Frames the work around a research question + success metric, and emphasizes reproducible pipelines."
+applyTo: "**/*.{R,r,Rmd,rmd,qmd,py,ipynb}"
 ---
 # Analysis (analyze, don't just build)
 
