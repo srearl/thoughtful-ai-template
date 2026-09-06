@@ -22,10 +22,9 @@ R and Python projects with AI coding assistants.
   config keys from documentation, not model memory.
 - **Local WAF reference** in `.github/ai-reference/waf/` — version-controlled
   pillar checklists the agent consults for non-trivial design choices.
-- **Concise AI worklog** in `AI_WORKLOG.md` — sanitized request, outcome,
-  decision, and verification summaries for material AI-assisted project work.
-- **Domain skills** in `.github/skills/` — load on demand (e.g. EML/EDI
-  metadata, other domain knowledge you add over time).
+- **Optional AI worklog** — sanitized request, outcome, decision, and
+  verification summaries for material AI-assisted project work, kept only in
+  projects that want one.
 
 ## What this template intentionally omits
 
@@ -37,15 +36,13 @@ R and Python projects with AI coding assistants.
 ## Quick start
 
 1. Use this repo as a GitHub template ("Use this template" button).
-2. Clone the new repo and open it in VS Code.
+2. Clone the new repo and open it in your editor or assistant of choice.
 3. Start from `AGENTS.md`; it is the canonical operating model for AI agents.
 4. Platform-specific adapters point back to `AGENTS.md`:
    `.github/copilot-instructions.md`, `CLAUDE.md`, and `.cursor/rules/`.
 5. When asking an assistant to implement something non-trivial, it should
    briefly state the relevant WAF pillars and any trade-offs before writing
    code.
-6. For material AI-assisted work, review the assistant's concise
-   `AI_WORKLOG.md` entry alongside the code changes.
 
 ## Platform support
 
@@ -60,9 +57,10 @@ files for tool-specific discovery.
 | Claude Code | `CLAUDE.md` |
 | Cursor | `.cursor/rules/project.mdc` |
 
-The `.github/instructions/*.instructions.md` files remain useful for Copilot's
-path-scoped rules. Other assistants may not load them automatically, so
-`AGENTS.md` tells agents to consult task-specific instructions when relevant.
+The `.github/instructions/*.instructions.md` files carry the task-specific
+standards for every assistant, not just Copilot. Only Copilot honors their
+`applyTo` frontmatter, so `AGENTS.md` names each file with a one-line trigger;
+assistants that do not auto-load them read the matching file themselves.
 
 ## Reuse model
 
@@ -72,13 +70,14 @@ guidance, but most AI tools do not automatically discover instruction files
 nested inside a submodule. If a consuming project uses a submodule, keep
 root-level adapter files in that project that point into the submodule.
 
-## Recording AI-assisted project work
+## Recording AI-assisted project work (optional)
 
-`AI_WORKLOG.md` preserves the useful connection between a request and its
-verified outcome without retaining a verbose prompt or execution transcript.
-For material work, the assistant records a short, sanitized request summary;
-the outcome; important decisions and trade-offs; verification results; known
-limitations; and links to related issues, pull requests, or commits.
+A worklog preserves the useful connection between a request and its verified
+outcome without retaining a verbose prompt or execution transcript. It is not
+shipped by default: most projects do not need one, so `AGENTS.md` tells
+assistants to maintain `AI_WORKLOG.md` only where it already exists and never
+to create one unprompted. The main-branch README carries the entry template and
+inclusion rules for a project that wants one.
 
 The worklog intentionally omits routine questions, trivial changes, raw
 prompts, transcripts, private reasoning, tool output, credentials, and
@@ -89,15 +88,14 @@ Use each history file for a distinct purpose:
 
 | Information | Location |
 |---|---|
-| Material AI-assisted project work | `AI_WORKLOG.md` |
-| Changes to AI instructions and the operating model | `.github/CHANGELOG.md` |
+| Material AI-assisted work in a project that keeps one | `AI_WORKLOG.md` |
+| Changes to this template's instructions and operating model | `.github/CHANGELOG.md` (this branch) |
 | User-facing release history, when maintained | `CHANGELOG.md` |
-
-See `AI_WORKLOG.md` for the entry template and detailed inclusion rules.
 
 ## Connecting live documentation (optional but recommended)
 
-Add MCP servers to `.vscode/mcp.json` for live documentation lookup:
+Configure MCP servers where your assistant expects them (`.vscode/mcp.json`
+for VS Code, `.mcp.json` for Claude Code) for live documentation lookup:
 - **Microsoft Learn** — Azure and .NET docs
 - **context7** — live R-package documentation
 - **Google Cloud docs** — GCP architecture guidance
@@ -106,7 +104,7 @@ Add MCP servers to `.vscode/mcp.json` for live documentation lookup:
 
 For database-heavy R/Python projects, use
 `.github/instructions/postgresql.instructions.md` and prefer MCP-backed
-PostgreSQL operations in VS Code.
+PostgreSQL operations where a server is connected.
 
 - Why MCP-first: safer read-first workflow, schema/context inspection before
   changes, easier query-plan and performance diagnostics.

@@ -4,10 +4,40 @@ Tracks intentional changes to the engineering operating model: instructions,
 skills, WAF docs, and MCP config. Git history captures *what*; this file
 captures *why*. Newest first.
 
+## 2026-09-06
+- Make the materials provider-neutral rather than Copilot-first: point the
+  analysis and Well-Architected instruction files at `AGENTS.md` instead of the
+  `copilot-instructions.md` adapter, and make the PostgreSQL MCP server a
+  preference rather than the mandated interface, so the read-first sequence
+  still applies in a CLI or non-VS Code session.
+- Name each task-specific instruction file in `AGENTS.md` with a one-line
+  trigger. `applyTo` frontmatter is honored only by Copilot, so on every other
+  assistant nothing loaded the R, Python, analysis, PostgreSQL, or WAF
+  standards automatically. Chose this over a parallel per-platform rules
+  directory to avoid duplicating the standards.
+- Remove references that dangle in a repository the template is copied into:
+  `.github/CHANGELOG.md`, `.github/skills/`, and the `eml-metadata` skill. An
+  agent pointed at a missing path wastes a turn or invents the content.
+- Narrow the analysis `applyTo` glob to notebooks and Quarto/R Markdown. It
+  previously claimed every `.py` and `.R` file was an analysis deliverable
+  rather than software, which is wrong for package source.
+- Make the AI worklog opt-in. Assistants now maintain `AI_WORKLOG.md` only
+  where it already exists and never create one unprompted; instructions for
+  starting one moved to the main-branch README, which is read by a human
+  deciding whether to adopt it rather than loaded into every agent session.
+- Remove `AI_WORKLOG.md` from `main` so it is no longer part of the copy
+  surface. This repository's own record lives here instead, avoiding two
+  near-duplicate logs of the same operating-model work.
+
 ## 2026-08-13
 - Add a root `AI_WORKLOG.md` template for concise, sanitized summaries of
   material AI-assisted project work, preserving request-to-outcome context
-  without storing raw prompts or transcripts.
+  without storing raw prompts or transcripts. (Superseded 2026-09-06: the
+  worklog is now opt-in and no longer ships on `main`.)
+- Remove the instructions that told copied projects to maintain a
+  `.github/CHANGELOG.md`, which exists only in this template repository.
+- Give the analysis and Well-Architected instruction files explicit `applyTo`
+  frontmatter for more consistent automatic matching in Copilot.
 - Distinguish the project AI worklog from `.github/CHANGELOG.md` (operating
   model changes) and an optional root `CHANGELOG.md` (user-facing releases),
   removing ambiguity about where each kind of rationale belongs.
