@@ -1,12 +1,13 @@
 ---
 description: "Use when the deliverable is a data analysis rather than software: exploratory analysis, statistics/modeling, figures, or reports/notebooks. Frames the work around a research question + success metric, and emphasizes reproducible pipelines."
-applyTo: "**/*.{R,r,Rmd,rmd,qmd,py,ipynb}"
+applyTo: "**/*.{Rmd,rmd,qmd,ipynb}"
 ---
 # Analysis (analyze, don't just build)
 
-Same operating model as `copilot-instructions.md`, with data-analysis framing.
-The deliverable is a **validated result** (figures, tables, model, report) — not
-software. Treat reproducibility as the reliability pillar.
+Same operating model as `AGENTS.md`, with data-analysis framing. Applies when
+the deliverable is a **validated result** (figures, tables, model, report)
+rather than software — including R and Python scripts that produce one. Treat
+reproducibility as the reliability pillar.
 
 ## Framing analysis work
 
@@ -31,4 +32,3 @@ Before writing code, briefly state:
 
 - Re-run end-to-end from a clean checkout; outputs match.
 - State assumptions and check them; report uncertainty, not just point estimates.
-- If publishing data, hand off to the `eml-metadata` skill for the package.

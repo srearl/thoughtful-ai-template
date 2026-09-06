@@ -2,9 +2,7 @@
 
 Version-controlled reference material for design decisions. The agent reads
 these files on demand (native workspace file access) and cites the relevant
-pillar inline in code comments or commit messages. Material AI-assisted work
-is summarized in `AI_WORKLOG.md`; changes to this operating model belong in
-`.github/CHANGELOG.md`.
+pillar inline in code comments or commit messages.
 
 ## Why a local folder instead of an MCP filesystem server?
 
