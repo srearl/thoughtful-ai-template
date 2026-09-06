@@ -10,7 +10,8 @@ with AI coding assistants.
 3. Follow `AGENTS.md`.
 
 `AGENTS.md` is the canonical operating model. Platform-specific adapters live
-in `.github/`, `CLAUDE.md`, and `.cursor/rules/`.
+in `.github/`, `CLAUDE.md`, and `.cursor/rules/`. Copy those; `.claude/` holds
+configuration for maintaining this template repository and is not part of it.
 
 ## Optional: keep an AI worklog
 
