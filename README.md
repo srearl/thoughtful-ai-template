@@ -1,4 +1,10 @@
-# Intentional AI Template
+# Intentional AI Template — maintainer documentation
+
+> This branch holds maintainer documentation only: this README and
+> `.github/CHANGELOG.md`. The template materials themselves live on `main`.
+> They were removed from this branch because the copies here silently drifted
+> out of date, and resyncing them would have to be repeated after every change.
+> Paths referenced below are paths on `main`.
 
 A lightweight, **well-architected but non-spec-driven** workflow template for
 R and Python projects with AI coding assistants.
@@ -91,6 +97,32 @@ Use each history file for a distinct purpose:
 | Material AI-assisted work in a project that keeps one | `AI_WORKLOG.md` |
 | Changes to this template's instructions and operating model | `.github/CHANGELOG.md` (this branch) |
 | User-facing release history, when maintained | `CHANGELOG.md` |
+
+## Maintaining this repository
+
+`.claude/rules/maintaining.instructions.md` on `main` carries the rules for
+working on the template itself — most importantly, that changing the operating
+model should be followed by a `.github/CHANGELOG.md` entry on this branch, and
+that no file on `main` may reference a maintainer-only path.
+
+That file is placed in `.claude/rules/` because two assistants load it without
+being asked:
+
+| Assistant | Loads it? | Why |
+|---|---|---|
+| Claude Code | yes | reads every `.md` under `.claude/rules/` |
+| GitHub Copilot | yes | `.claude/rules` is a default `chat.instructionsFilesLocations` folder, and `applyTo: "**"` applies it to every request |
+| Codex | **no** | reads only `AGENTS.override.md`/`AGENTS.md` chains, and takes the first match per directory |
+
+**The changelog reminder therefore does not fire in Codex.** This is a known
+and accepted limitation. Codex has no additive per-repository local instruction
+file: a root `AGENTS.override.md` would shadow `AGENTS.md` rather than
+supplement it, and `~/.codex/AGENTS.md` is machine-wide rather than scoped to
+this repository. When editing the template from Codex, write the changelog
+entry yourself.
+
+`.claude/` is maintainer configuration and is deliberately excluded from the
+files copied into project repositories.
 
 ## Connecting live documentation (optional but recommended)
 

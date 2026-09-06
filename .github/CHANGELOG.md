@@ -4,6 +4,24 @@ Tracks intentional changes to the engineering operating model: instructions,
 skills, WAF docs, and MCP config. Git history captures *what*; this file
 captures *why*. Newest first.
 
+## 2026-09-06 (later)
+- Reduce the `documentation` branch to maintainer documentation only: this
+  changelog and the expanded README. The branch also carried copies of
+  `AGENTS.md` and the instruction files, which had silently drifted two commits
+  behind `main`. Deleted rather than resynced, because resyncing would recur
+  after every change to the materials.
+- Add `.claude/rules/maintaining.instructions.md` on `main` to carry the rules
+  for maintaining the template itself, including this changelog convention.
+  Nothing on `main` could state it before: every file there is copy surface, so
+  a reference to this branch would dangle in a consuming project.
+- Chose `.claude/rules/` because Claude Code reads every `.md` there and VS Code
+  Copilot scans it by default via `chat.instructionsFilesLocations`; one file
+  with `applyTo: "**"` satisfies both. Codex reads neither and is documented as
+  a known gap — it has no additive per-repository instruction file, since a root
+  `AGENTS.override.md` shadows `AGENTS.md` rather than supplementing it.
+  Preferred a mechanism that fires automatically in two of three assistants over
+  a portable convention that depends on remembering to apply it.
+
 ## 2026-09-06
 - Make the materials provider-neutral rather than Copilot-first: point the
   analysis and Well-Architected instruction files at `AGENTS.md` instead of the
