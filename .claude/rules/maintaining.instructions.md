@@ -12,8 +12,8 @@ these rules apply only here.
 
 Files on `main` are the copy surface. A reference to the `documentation` branch
 or to `.github/CHANGELOG.md` dangles as soon as the file is copied, so those
-paths must never appear in `AGENTS.md`, `CLAUDE.md`, `.github/`, or
-`.cursor/`. The same applies to any path this template does not itself ship.
+paths must never appear in `AGENTS.md`, `CLAUDE.md`, or `.github/`. The same
+applies to any path this template does not itself ship.
 
 `.claude/` is maintainer configuration for this repository and is not copied
 into project repositories.
@@ -30,9 +30,9 @@ Do not create a changelog or worklog on `main`.
 
 ## Verify platform behavior before asserting it
 
-These materials make claims about how Claude Code, Copilot, Codex, and Cursor
-discover instruction files. Those behaviors change. Confirm a claim against
-current official documentation before writing it down or acting on it.
+These materials make claims about how Claude Code, Copilot, and Codex discover
+instruction files. Those behaviors change. Confirm a claim against current
+official documentation before writing it down or acting on it.
 
 <!-- This file is loaded automatically by Claude Code (any .md under
 .claude/rules/) and by VS Code Copilot (.claude/rules is a default

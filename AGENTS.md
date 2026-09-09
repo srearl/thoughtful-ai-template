@@ -14,7 +14,6 @@ than duplicate these rules.
 - GitHub Copilot: `.github/copilot-instructions.md`, plus task-specific files
   in `.github/instructions/`.
 - Claude Code: `CLAUDE.md`.
-- Cursor: `.cursor/rules/`.
 
 Task-specific standards live in `.github/instructions/`. Some platforms load
 them automatically from their `applyTo` pattern; others do not. Read the
