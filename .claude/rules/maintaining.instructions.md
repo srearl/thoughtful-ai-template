@@ -21,7 +21,7 @@ into project repositories.
 ## Record the *why* in the changelog
 
 After changing the operating model — `AGENTS.md`, the files in
-`.github/instructions/`, the WAF reference, or any platform adapter — add an
+`.github/instructions/`, or any platform adapter — add an
 entry to `.github/CHANGELOG.md` on the `documentation` branch. Git history
 captures what changed; the changelog captures why, and which alternatives were
 rejected. Skip it for typo fixes and formatting.
