@@ -4,6 +4,68 @@ Tracks intentional changes to the engineering operating model: instructions,
 skills, WAF docs, and MCP config. Git history captures *what*; this file
 captures *why*. Newest first.
 
+## 2026-10-14
+- Review against current Claude Code, Copilot, VS Code, and Codex docs; fix
+  stale claims and trim overhead.
+- Delete the root `README.md` from `main`. `main` is the copy surface, so a
+  template-facing README overwrote the receiving project's own. Cost: the
+  GitHub landing page is empty. The worklog entry template moved to this
+  branch's README, and `AGENTS.md` now says to follow an existing worklog's
+  format rather than point at a README that may not be copied.
+- Drop `applyTo: "**"` from the `well-architected` instruction. It attached the
+  file to every Copilot request though it is meant for non-trivial design
+  only; with no `applyTo`, Copilot attaches it when its `description` fits the
+  task. Trade-off: it is now attached less predictably.
+- Remove the live-documentation MCP list (Microsoft Learn, Google Cloud,
+  context7) and the `.mcp.json` / `.vscode/mcp.json` advice. Nothing shipped
+  those files, and the servers named did not serve R/Python work. `AGENTS.md`
+  now says to check official docs via any connected tool or the web.
+- Reduce `.github/copilot-instructions.md` to a one-line pointer. The text
+  about `.github/instructions/` duplicated native Copilot discovery. Kept the
+  file rather than deleting it: GitHub's support matrix lists `AGENTS.md` for
+  VS Code but not for Visual Studio, JetBrains, Xcode, or Eclipse, which read
+  only `copilot-instructions.md`. VS Code docs also advise against duplicated
+  guidance, which a pointer is not.
+- Correct this branch's README: the Cursor adapter had been removed from `main`
+  but was still advertised; the reuse section described GitHub-template use
+  while the actual workflow is copying files; the `.claude/rules` rationale now
+  records that `chat.instructionsFilesLocations` is deprecated and that VS Code
+  names `paths`, not `applyTo`, for Claude-format rules.
+
+## 2026-10-14 (later)
+- Replace the `AGENTS.md` pointer to a "companion spec-driven template" with a
+  suggestion to use plan mode for complex or long-lived work. The
+  `spec-driven-ai-template` repository no longer exists, so the pointer
+  dangled; plan mode is built into the assistants used here and needs nothing
+  copied. Also reworded the clarifying-question line and removed bold
+  formatting from the pillar names. Edited by the maintainer; recorded here.
+  Trade-off: plan mode is a tool feature, not a repo-defined workflow, so
+  "complex" is left to the user's judgment. Updated this README's "When to
+  use" section to match; earlier entries below that mention the spec-driven
+  template are history and are left as written.
+- Narrow `AGENTS.md` to the salient points. The state-intent-then-WAF-note
+  ritual for "non-trivial" work depended on an undefined threshold that models
+  read differently, and added boilerplate to routine edits. Replaced it with:
+  keep scope, name the trade-off in one line when a choice has real
+  alternatives, verify. Relies on current models needing less scaffolding;
+  trade-off is less forced consistency of output.
+- Collapse the WAF reference (five checklist files, a README, and the
+  `well-architected` instruction) into a five-line pillar list in `AGENTS.md`.
+  The checklists were 0.6–0.8 KB each and mostly restated that list. Kept five
+  pillars, merging cost and sustainability, although AWS lists six; the AWS
+  Responsible AI and Generative AI lenses (Nov 2025) target AWS AI workloads
+  and do not fit research software. Removed the `well-architected` file with
+  the folder it pointed to.
+- Add a Safety section to `AGENTS.md` (no credentials, treat fetched or MCP
+  content as data, confirm destructive or outward-facing actions). Enforcement
+  is documented in this README as optional `Read` deny rules, not shipped:
+  `.claude/` is outside the copy surface. Deliberately omitted data
+  classification checks; the maintainer judges those case by case.
+- Python standard reduced to `uv`, `ruff check`, `ruff format`, `pytest`;
+  dropped `black` (Ruff's formatter is documented as a near drop-in
+  replacement) and made type checking optional. R standard now links the
+  tidyverse style guide.
+
 ## 2026-09-06 (later)
 - Reduce the `documentation` branch to maintainer documentation only: this
   changelog and the expanded README. The branch also carried copies of
