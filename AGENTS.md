@@ -30,6 +30,27 @@ here rather than duplicate it. Task-specific standards live in
 If a request is ambiguous, ask clarifying question rather than guess. For
 complex multi-team or long-lived work, consider suggesting plan mode instead.
 
+## Commits
+
+Write commit messages in the
+[Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)
+style:
+
+```text
+<type>[optional scope][!]: <description>
+
+[optional body: the why, not a restatement of the diff]
+
+[optional footers, e.g. BREAKING CHANGE: ..., Co-Authored-By: ...]
+```
+
+- Types: `feat`, `fix`, `docs`, `refactor`, `test`, `perf`, `build`, `ci`,
+  `chore`, `style`, `revert`.
+- Description: imperative mood, lowercase, no trailing period.
+- Mark breaking changes with `!` after the type/scope or a
+  `BREAKING CHANGE:` footer.
+- One logical change per commit; split unrelated changes.
+
 ## Design pillars
 
 - Reliability — runs end-to-end from a clean checkout; pinned dependencies;
